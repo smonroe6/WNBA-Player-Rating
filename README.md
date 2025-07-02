@@ -1,4 +1,5 @@
 # 🏀 WNBA Player Rating System
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 This project creates a custom WNBA player evaluation system inspired by ESPN's NBA Player Efficiency Rating (PER). It calculates and compares three performance metrics — **Efficiency**, **Win Score**, and a custom **PER-like rating** — using publicly available WNBA season totals.
 
@@ -78,3 +79,12 @@ Automate scraping for real-time updates during the season
 Have ideas, feedback, or want to collaborate on WNBA analytics?  
 Feel free to reach out or open a pull request!  
 Can be reached at sdmonroe1999@gmail.com
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).  
+You are free to use, modify, and distribute this project with attribution.  
+See the full license text in the [LICENSE](LICENSE) file.
+

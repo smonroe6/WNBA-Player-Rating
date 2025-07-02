@@ -104,6 +104,8 @@
               .join("") +
             "</tbody>";
 
+          const perIndex = headers.findIndex((h) => h.trim() === "PER");
+
           $("#metricsTable")
             .html(thead + tbody)
             .DataTable({
@@ -111,6 +113,7 @@
               paging: true,
               ordering: true,
               searching: true,
+              order: [[perIndex, "desc"]], // autosort by PER column
             });
         });
       });

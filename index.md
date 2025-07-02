@@ -30,10 +30,15 @@ You can view full explanations in the [README](https://github.com/smonroe6/WNBA-
 
 ## 🔍 Explore the Project
 
-- 📁 [View the GitHub Repository](https://github.com/smonroe6/WNBA-Player-Rating)  
-- 📓 [Open the Metric Calculation Notebook](https://github.com/smonroe6/WNBA-Player-Rating/blob/main/notebooks/Metrics.ipynb)  
-- 📈 [See Final Metric Outputs](https://github.com/smonroe6/WNBA-Player-Rating/tree/main/data/Metrics)  
+- 📁 [View the GitHub Repository](https://github.com/smonroe6/WNBA-Player-Rating)
 - 🗃️ [Raw and Cleaned Data Files](https://github.com/smonroe6/WNBA-Player-Rating/tree/main/data)
+- 📓 [Open the Metric Calculation Notebook](https://github.com/smonroe6/WNBA-Player-Rating/blob/main/notebooks/Metrics.ipynb)  
+- 📈 [See Final Metric Outputs](https://github.com/smonroe6/WNBA-Player-Rating/tree/main/data/Metrics)
+- 📈 [View 2023 Season Interactive Metrics Table](2023Metrics.html)
+- 📈 [View 2024 Season Interactive Metrics Table](2024Metrics.html)
+- 📈 [View Ongoing 2025 Season Interactive Metrics Table](2025Metrics.html)
+
+
 
 ---
 

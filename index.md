@@ -60,4 +60,5 @@ Data from [Basketball-Reference](https://www.basketball-reference.com/wnba/) is 
 ## 🤝 Let’s Connect
 
 I'm open to feedback, questions, or collaboration on sports analytics projects!  
-Feel free to reach out or open a pull request on GitHub.
+Feel free to reach out or open a pull request on GitHub.  
+Can be reached at sdmonroe1999@gmail.com

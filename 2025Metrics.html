@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2025 WNBA Player Metrics</title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css"
+    />
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"
+    ></script>
+  </head>
+  <body>
+    <h2>WNBA Player Ratings (2025)</h2>
+    <table id="metricsTable" class="display" style="width: 100%"></table>
+
+    <script>
+      $(document).ready(function () {
+        $.get("data/Metrics/2025Metrics.csv", function (csvData) {
+          const lines = csvData.trim().split("\n");
+          const headers = lines[0].split(",");
+          const rows = lines.slice(1).map((line) => line.split(","));
+
+          const thead =
+            "<thead><tr>" +
+            headers.map((h) => `<th>${h}</th>`).join("") +
+            "</tr></thead>";
+          const tbody =
+            "<tbody>" +
+            rows
+              .map(
+                (row) =>
+                  "<tr>" +
+                  row.map((cell) => `<td>${cell}</td>`).join("") +
+                  "</tr>"
+              )
+              .join("") +
+            "</tbody>";
+
+          $("#metricsTable")
+            .html(thead + tbody)
+            .DataTable();
+        });
+      });
+    </script>
+  </body>
+</html>

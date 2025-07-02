@@ -13,6 +13,18 @@ This project creates a custom WNBA player evaluation system inspired by ESPN's N
 
 ---
 
+## 🚀 Live Website
+
+Explore the interactive site here:  
+👉 [https://smonroe6.github.io/WNBA-Player-Rating/](https://smonroe6.github.io/WNBA-Player-Rating/)
+
+View metrics by season:
+- [2023 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/2023Metrics.html)
+- [2024 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/2024Metrics.html)
+- [2025 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/2025Metrics.html)
+
+---
+
 ## 📂 Project Structure
 
 ```
@@ -78,7 +90,9 @@ Automate scraping for real-time updates during the season
 ## 🤝 Connect
 Have ideas, feedback, or want to collaborate on WNBA analytics?  
 Feel free to reach out or open a pull request!  
-Can be reached at sdmonroe1999@gmail.com
+📧 [sdmonroe1999@gmail.com](mailto:sdmonroe1999@gmail.com)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/stephenmonroe)
+
 
 ---
 

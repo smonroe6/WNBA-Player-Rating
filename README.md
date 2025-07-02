@@ -92,8 +92,6 @@ Create player dashboards and career summaries
 
 Automate scraping for real-time updates during the season
 
-📜 License
-MIT License
 Data from Basketball-Reference used for non-commercial, educational purposes.
 
 🤝 Connect

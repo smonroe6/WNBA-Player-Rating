@@ -1,0 +1,41 @@
+name: Auto-update WNBA Metrics
+
+on:
+  schedule:
+    # 6:00 AM CST (11:00 UTC) and 3:30 PM CST (20:30 UTC)
+    - cron: "0 11 * * *"
+    - cron: "30 20 * * *"
+  workflow_dispatch: # Allows manual run from GitHub UI
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repo
+        uses: actions/checkout@v3
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: 📦 Install dependencies
+        run: pip install pandas jupyter
+
+      - name: 📊 Run scrape.ipynb
+        run: jupyter nbconvert --to notebook --execute notebooks/scrape.ipynb --output notebooks/scrape_out.ipynb
+
+      - name: 🧮 Run Metrics.ipynb
+        run: jupyter nbconvert --to notebook --execute notebooks/Metrics.ipynb --output notebooks/Metrics_out.ipynb
+
+      - name: 🕒 Update last_updated.txt
+        run: |
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > data/Metrics/last_updated.txt
+
+      - name: 📤 Commit and push updated CSVs
+        run: |
+          git config --global user.email "sdmonroe1999@gmail.com"
+          git config --global user.name "GitHub Actions Bot"
+          git add data/Metrics/*.csv
+          git diff --cached --quiet || (git commit -m "📈 Auto-update WNBA metrics" && git push)

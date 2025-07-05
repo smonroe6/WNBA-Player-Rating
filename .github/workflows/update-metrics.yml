@@ -1,5 +1,7 @@
 name: Auto-update WNBA Metrics
 
+permissions:
+  contents: write
 on:
   schedule:
     # 6:00 AM CST (11:00 UTC) and 3:30 PM CST (20:30 UTC)
@@ -13,7 +15,9 @@ jobs:
 
     steps:
       - name: 📥 Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: 🐍 Set up Python
         uses: actions/setup-python@v4
@@ -37,5 +41,5 @@ jobs:
         run: |
           git config --global user.email "sdmonroe1999@gmail.com"
           git config --global user.name "GitHub Actions Bot"
-          git add data/Metrics/*.csv
+          git add data/Metrics/*.csv data/Metrics/last_updated.txt
           git diff --cached --quiet || (git commit -m "📈 Auto-update WNBA metrics" && git push)

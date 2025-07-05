@@ -24,10 +24,10 @@ jobs:
         run: pip install pandas jupyter lxml
 
       - name: 📊 Run scrape.ipynb
-        run: jupyter nbconvert --to notebook --execute notebooks/scrape.ipynb --output notebooks/scrape.ipynb
+        run: jupyter nbconvert --to notebook --execute notebooks/scrape.ipynb --output scrape.ipynb
 
       - name: 🧮 Run Metrics.ipynb
-        run: jupyter nbconvert --to notebook --execute notebooks/Metrics.ipynb --output notebooks/Metrics.ipynb
+        run: jupyter nbconvert --to notebook --execute notebooks/Metrics.ipynb --output Metrics.ipynb
 
       - name: 🕒 Update last_updated.txt
         run: |

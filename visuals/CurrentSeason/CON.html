@@ -78,39 +78,42 @@
 
     <script>
       $(document).ready(function () {
-        $.get("data/Metrics/CurrentSeasonTeams/CON.csv", function (csvData) {
-          const lines = csvData.trim().split("\n");
-          const headers = lines[0].split(",");
-          const rows = lines.slice(1).map((line) => line.split(","));
+        $.get(
+          "/WNBA-Player-Rating/data/Metrics/CurrentSeasonTeams/CON.csv",
+          function (csvData) {
+            const lines = csvData.trim().split("\n");
+            const headers = lines[0].split(",");
+            const rows = lines.slice(1).map((line) => line.split(","));
 
-          const thead =
-            "<thead><tr>" +
-            headers.map((h) => `<th>${h}</th>`).join("") +
-            "</tr></thead>";
-          const tbody =
-            "<tbody>" +
-            rows
-              .map(
-                (row) =>
-                  "<tr>" +
-                  row.map((cell) => `<td>${cell}</td>`).join("") +
-                  "</tr>"
-              )
-              .join("") +
-            "</tbody>";
+            const thead =
+              "<thead><tr>" +
+              headers.map((h) => `<th>${h}</th>`).join("") +
+              "</tr></thead>";
+            const tbody =
+              "<tbody>" +
+              rows
+                .map(
+                  (row) =>
+                    "<tr>" +
+                    row.map((cell) => `<td>${cell}</td>`).join("") +
+                    "</tr>"
+                )
+                .join("") +
+              "</tbody>";
 
-          const perIndex = headers.findIndex((h) => h.trim() === "PER");
+            const perIndex = headers.findIndex((h) => h.trim() === "PER");
 
-          $("#metricsTable")
-            .html(thead + tbody)
-            .DataTable({
-              scrollX: true,
-              paging: true,
-              ordering: true,
-              searching: true,
-              order: [[perIndex, "desc"]], // autosort by PER column
-            });
-        });
+            $("#metricsTable")
+              .html(thead + tbody)
+              .DataTable({
+                scrollX: true,
+                paging: true,
+                ordering: true,
+                searching: true,
+                order: [[perIndex, "desc"]], // autosort by PER column
+              });
+          }
+        );
       });
     </script>
     <p>

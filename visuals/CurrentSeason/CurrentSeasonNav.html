@@ -1,7 +1,207 @@
-<!--#include virtual="/visuals/navbar.html" -->
-
 <!DOCTYPE html>
 <html>
+  <nav
+    style="background-color: #333; overflow: hidden; font-family: sans-serif"
+  >
+    <div style="display: flex">
+      <!-- Metrics Dropdown -->
+      <div style="position: relative">
+        <button
+          style="
+            padding: 14px 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+          "
+        >
+          Metrics ▼
+        </button>
+        <div
+          style="
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+          "
+        >
+          <a
+            href="/visuals/MetricsNav.html"
+            style="
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            "
+            >All Metrics</a
+          >
+          <a
+            href="/visuals/League/2023Metrics.html"
+            style="
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            "
+            >2023 League</a
+          >
+          <a
+            href="/visuals/League/2024Metrics.html"
+            style="
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            "
+            >2024 League</a
+          >
+          <a
+            href="/visuals/League/2025Metrics.html"
+            style="
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            "
+            >2025 League</a
+          >
+          <a
+            href="/visuals/CurrentSeason/CurrentSeasonNav.html"
+            style="
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            "
+            >Current Season</a
+          >
+        </div>
+      </div>
+
+      <!-- League Dropdown -->
+      <div style="position: relative">
+        <button
+          style="
+            padding: 14px 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+          "
+        >
+          League ▼
+        </button>
+        <div
+          style="
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+          "
+        >
+          <a
+            href="/visuals/League/LeagueNav.html"
+            style="
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            "
+            >All Seasons</a
+          >
+          <a
+            href="/visuals/League/2023Metrics.html"
+            style="
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            "
+            >2023</a
+          >
+          <a
+            href="/visuals/League/2024Metrics.html"
+            style="
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            "
+            >2024</a
+          >
+          <a
+            href="/visuals/League/2025Metrics.html"
+            style="
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            "
+            >2025</a
+          >
+        </div>
+      </div>
+
+      <!-- Current Season Dropdown -->
+      <div style="position: relative">
+        <button
+          style="
+            padding: 14px 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+          "
+        >
+          Current Season ▼
+        </button>
+        <div
+          style="
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+          "
+        >
+          <a
+            href="/visuals/CurrentSeason/CurrentSeasonNav.html"
+            style="
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            "
+            >Team Pages</a
+          >
+          <a
+            href="/visuals/League/2025Metrics.html"
+            style="
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            "
+            >League Summary</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll("nav div").forEach(function (menu) {
+        menu.addEventListener("mouseenter", function () {
+          this.querySelector("div").style.display = "block";
+        });
+        menu.addEventListener("mouseleave", function () {
+          this.querySelector("div").style.display = "none";
+        });
+      });
+    </script>
+  </nav>
+
   <head>
     <title>2025 Team Pages</title>
   </head>

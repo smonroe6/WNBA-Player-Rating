@@ -1,0 +1,172 @@
+<!--#include virtual="/visuals/navbar.html" -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2025 Indiana Fever</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DataTables (Bootstrap 5 integration) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f8f9fa;
+        padding: 2rem;
+      }
+
+      h2 {
+        color: #005bbb;
+        margin-bottom: 1rem;
+      }
+
+      .btn-home {
+        background-color: #005bbb;
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+
+      .btn-home:hover {
+        background-color: #004199;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Back Button -->
+    <p>
+      <a
+        href="https://smonroe6.github.io/WNBA-Player-Rating/"
+        style="
+          background-color: #005bbb;
+          color: white;
+          padding: 8px 16px;
+          text-decoration: none;
+          border-radius: 6px;
+          font-family: sans-serif;
+        "
+        >← Back to Home</a
+      >
+    </p>
+
+    <h2>2025 Indiana Fever</h2>
+    <div style="overflow-x: auto">
+      <table
+        id="metricsTable"
+        class="table table-striped table-bordered nowrap"
+        style="width: 100%"
+      ></table>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $.get("data/Metrics/CurrentSeasonTeams/IND.csv", function (csvData) {
+          const lines = csvData.trim().split("\n");
+          const headers = lines[0].split(",");
+          const rows = lines.slice(1).map((line) => line.split(","));
+
+          const thead =
+            "<thead><tr>" +
+            headers.map((h) => `<th>${h}</th>`).join("") +
+            "</tr></thead>";
+          const tbody =
+            "<tbody>" +
+            rows
+              .map(
+                (row) =>
+                  "<tr>" +
+                  row.map((cell) => `<td>${cell}</td>`).join("") +
+                  "</tr>"
+              )
+              .join("") +
+            "</tbody>";
+
+          const perIndex = headers.findIndex((h) => h.trim() === "PER");
+
+          $("#metricsTable")
+            .html(thead + tbody)
+            .DataTable({
+              scrollX: true,
+              paging: true,
+              ordering: true,
+              searching: true,
+              order: [[perIndex, "desc"]], // autosort by PER column
+            });
+        });
+      });
+    </script>
+    <p>
+      <span id="last-updated" class="badge mt-3" title=""></span>
+    </p>
+
+    <script>
+      $.get("data/Metrics/last_updated.txt", function (timestamp) {
+        const updatedUtc = new Date(timestamp.trim());
+        const now = new Date();
+
+        const diffMs = now - updatedUtc;
+        const diffMinutes = Math.floor(diffMs / 1000 / 60);
+        const diffHours = Math.floor(diffMinutes / 60);
+
+        // Format UTC -> Central Time (CDT or CST based on time of year)
+        const options = {
+          timeZone: "America/Chicago",
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        };
+        const formattedLocal = new Intl.DateTimeFormat("en-US", options).format(
+          updatedUtc
+        );
+
+        // Badge text
+        let badgeText = "";
+        if (diffHours < 1) {
+          badgeText = `🟢 Updated ${diffMinutes} minute${
+            diffMinutes !== 1 ? "s" : ""
+          } ago`;
+        } else if (diffHours <= 12) {
+          badgeText = `🟢 Updated ${diffHours} hour${
+            diffHours !== 1 ? "s" : ""
+          } ago`;
+        } else {
+          badgeText = `🟡 Updated ${diffHours} hour${
+            diffHours !== 1 ? "s" : ""
+          } ago`;
+        }
+
+        // Set badge styling and tooltip
+        const badge = $("#last-updated");
+        badge.text(badgeText);
+        badge.attr("title", `Last updated at ${formattedLocal} (Central Time)`);
+
+        // Apply badge color
+        badge.removeClass("bg-success bg-warning");
+        badge.addClass(diffHours <= 12 ? "bg-success" : "bg-warning");
+      });
+    </script>
+  </body>
+</html>

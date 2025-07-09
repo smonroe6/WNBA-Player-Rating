@@ -1,9 +1,11 @@
+<!--#include virtual="/visuals/navbar.html" -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>2023 WNBA Player Metrics</title>
+    <title>2025 Atlanta Dream</title>
 
     <!-- Bootstrap 5 -->
     <link
@@ -67,7 +69,7 @@
       >
     </p>
 
-    <h2>WNBA Player Ratings (2023)</h2>
+    <h2>2025 Atlanta Dream</h2>
     <div style="overflow-x: auto">
       <table
         id="metricsTable"
@@ -78,7 +80,7 @@
 
     <script>
       $(document).ready(function () {
-        $.get("data/Metrics/2023Metrics.csv", function (csvData) {
+        $.get("data/Metrics/CurrentSeasonTeams/ATL.csv", function (csvData) {
           const lines = csvData.trim().split("\n");
           const headers = lines[0].split(",");
           const rows = lines.slice(1).map((line) => line.split(","));

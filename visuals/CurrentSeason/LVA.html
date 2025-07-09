@@ -101,7 +101,7 @@
                 .join("") +
               "</tbody>";
 
-            const perIndex = headers.findIndex((h) => h.trim() === "PER");
+            const perIndex = headers.findIndex((h) => h.trim() === "NBAPER");
 
             $("#metricsTable")
               .html(thead + tbody)
@@ -121,53 +121,60 @@
     </p>
 
     <script>
-      $.get("data/Metrics/last_updated.txt", function (timestamp) {
-        const updatedUtc = new Date(timestamp.trim());
-        const now = new Date();
+      $.get(
+        "/WNBA-Player-Rating/data/Metrics/last_updated.txt",
+        function (timestamp) {
+          const updatedUtc = new Date(timestamp.trim());
+          const now = new Date();
 
-        const diffMs = now - updatedUtc;
-        const diffMinutes = Math.floor(diffMs / 1000 / 60);
-        const diffHours = Math.floor(diffMinutes / 60);
+          const diffMs = now - updatedUtc;
+          const diffMinutes = Math.floor(diffMs / 1000 / 60);
+          const diffHours = Math.floor(diffMinutes / 60);
 
-        // Format UTC -> Central Time (CDT or CST based on time of year)
-        const options = {
-          timeZone: "America/Chicago",
-          hour: "numeric",
-          minute: "numeric",
-          hour12: true,
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-        };
-        const formattedLocal = new Intl.DateTimeFormat("en-US", options).format(
-          updatedUtc
-        );
+          // Format UTC -> Central Time (CDT or CST based on time of year)
+          const options = {
+            timeZone: "America/Chicago",
+            hour: "numeric",
+            minute: "numeric",
+            hour12: true,
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          };
+          const formattedLocal = new Intl.DateTimeFormat(
+            "en-US",
+            options
+          ).format(updatedUtc);
 
-        // Badge text
-        let badgeText = "";
-        if (diffHours < 1) {
-          badgeText = `🟢 Updated ${diffMinutes} minute${
-            diffMinutes !== 1 ? "s" : ""
-          } ago`;
-        } else if (diffHours <= 12) {
-          badgeText = `🟢 Updated ${diffHours} hour${
-            diffHours !== 1 ? "s" : ""
-          } ago`;
-        } else {
-          badgeText = `🟡 Updated ${diffHours} hour${
-            diffHours !== 1 ? "s" : ""
-          } ago`;
+          // Badge text
+          let badgeText = "";
+          if (diffHours < 1) {
+            badgeText = `🟢 Updated ${diffMinutes} minute${
+              diffMinutes !== 1 ? "s" : ""
+            } ago`;
+          } else if (diffHours <= 12) {
+            badgeText = `🟢 Updated ${diffHours} hour${
+              diffHours !== 1 ? "s" : ""
+            } ago`;
+          } else {
+            badgeText = `🟡 Updated ${diffHours} hour${
+              diffHours !== 1 ? "s" : ""
+            } ago`;
+          }
+
+          // Set badge styling and tooltip
+          const badge = $("#last-updated");
+          badge.text(badgeText);
+          badge.attr(
+            "title",
+            `Last updated at ${formattedLocal} (Central Time)`
+          );
+
+          // Apply badge color
+          badge.removeClass("bg-success bg-warning");
+          badge.addClass(diffHours <= 12 ? "bg-success" : "bg-warning");
         }
-
-        // Set badge styling and tooltip
-        const badge = $("#last-updated");
-        badge.text(badgeText);
-        badge.attr("title", `Last updated at ${formattedLocal} (Central Time)`);
-
-        // Apply badge color
-        badge.removeClass("bg-success bg-warning");
-        badge.addClass(diffHours <= 12 ? "bg-success" : "bg-warning");
-      });
+      );
     </script>
   </body>
 </html>

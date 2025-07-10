@@ -72,7 +72,7 @@ A minute-adjusted composite score using weighted coefficients:
 
 PER = 0.3289 + (1 / MP) × [ 53.35 × FG - 29.28 × FGA + 15.27 × FT - 25.34 × FTA + 47.72 × ORB + 10.95 × DRB + 31.61 × AST + 50.72 × STL + 50.68 × BLK - 45.88 × TOV - 61.23 × PF + 41.10 × PTS]
 
-See how these were computed on my site [here](https://smonroe6.github.io/WNBA-Player-Rating/r/NBAVsWNBA.html)
+See how these were computed on my site [here](R/NBAVsWNBA.html)
 
 ## 🚀 How to Run
 

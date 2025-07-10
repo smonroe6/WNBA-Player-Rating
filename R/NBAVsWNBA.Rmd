@@ -1,0 +1,86 @@
+---
+title: "NBA vs WNBA Metrics to Win Share"
+author: "Stephen Monroe"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    toc_float: true
+    theme: cerulean
+  pdf_document:
+    toc: true
+    toc_depth: '3'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Packages Needed:** tidyverse
+
+```{r,eval=TRUE,message=FALSE, warning=FALSE, paged.print=FALSE}
+library(tidyverse)
+library(readxl)
+```
+
+## Read Data In
+
+```{r, echo=TRUE}
+WNBA <- read_xlsx("Data/WNBA.xlsx")
+NBA <- read_xlsx("Data/NBA.xlsx")
+```
+
+## Filter Data
+
+```{r, echo=TRUE}
+WNBA400 <- WNBA %>% 
+  filter(MP >= 400)
+
+NBA1000 <- NBA %>% 
+  filter(MP >= 1000)
+```
+
+
+## NBA Regression
+
+```{r, echo=FALSE}
+NBA_Reg <- lm(WS~FG+FGA+FT+FTA+ORB+DRB+AST+STL+BLK+TOV+PF+PTS, data = NBA1000)
+NBA_Scale <- NBA_Reg$coefficients/max(NBA_Reg$coefficients)
+print(NBA_Scale)
+```
+
+
+## WNBA Regression
+
+```{r,echo=FALSE}
+WNBA_Reg <- lm(WS~FG+FGA+FT+FTA+ORB+DRB+AST+STL+BLK+TOV+PF+PTS, data = WNBA400)
+WNBA_Scale <- WNBA_Reg$coefficients/max(WNBA_Reg$coefficients)
+print(WNBA_Scale)
+```
+
+## Comparison
+
+```{r, echo=FALSE}
+Scaler <- WNBA_Scale/NBA_Scale
+Scaler["PF"] <- abs(Scaler["PF"])
+print(Scaler)
+```
+
+## Transform Current Coefficients
+
+```{r, echo=FALSE}
+Current <- c(.68, 26.77, 35.58, 26.32, 25.47, 42.74, 11.45, 29.70, 47.3, 38, 47.9, 18.8, 41.1)
+names(Current) <- names(Scaler)
+print(Current)
+NewCoeff <- Scaler*Current
+```
+
+## Explanation
+
+I took a regression of the stats included in PER against the wins score. I then took the coefficients and scaled them against the largest coefficient. I did this for the NBA and WNBA and then divided the WNBA by the NBA to create scalers for the WNBA against the known NBA PER. These then were scaled against the NBA PER coefficients. They are as follows:
+
+```{r, echo=FALSE}
+print(NewCoeff)
+```

@@ -1,6 +1,6 @@
-Player,Pos,WinScore,Efficiency,NBAPER
-Haley Jones,F-G,2.167,4.5,8.319
-Liatu King,F,1.321,3.143,7.941
-NaLyssa Smith,F,3.952,8.19,11.699
-Julie Vanloo,G,-0.045,4.091,3.665
-Li Yueru,C,2.559,6.059,9.513
+Player,Pos,WinScore,Efficiency,NBAPER,WNBAPER
+Haley Jones,F-G,2.167,4.5,8.319,9.015
+Liatu King,F,1.321,3.143,7.941,6.781
+NaLyssa Smith,F,3.952,8.19,11.699,11.385
+Julie Vanloo,G,-0.045,4.091,3.665,3.54
+Li Yueru,C,2.559,6.059,9.513,6.456

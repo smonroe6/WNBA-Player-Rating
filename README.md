@@ -2,7 +2,7 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-This project creates a custom WNBA player evaluation system inspired by ESPN's NBA Player Efficiency Rating (PER). It calculates and compares three performance metrics — **Efficiency**, **Win Score**, and a NBA **PER rating** — using publicly available WNBA season totals.
+This project creates a custom WNBA player evaluation system inspired by ESPN's NBA Player Efficiency Rating (PER). It calculates and compares four performance metrics — **Efficiency**, **Win Score**, a NBA **PER rating**, and a custom weighted **WNBA PER** — using publicly available WNBA season totals.
 
 ---
 
@@ -21,9 +21,9 @@ Explore the interactive site here:
 
 View metrics by season:
 
-- [2023 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/2023Metrics.html)
-- [2024 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/2024Metrics.html)
-- [2025 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/2025Metrics.html)
+- [2023 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/visuals/League/2023Metrics.html)
+- [2024 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/visuals/League/2024Metrics.html)
+- [2025 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/visuals/League/2025Metrics.html)
 
 ---
 
@@ -62,9 +62,17 @@ WinScore = (PTS + TRB + STL + 0.5 × AST + 0.5 × BLK - FGA - TOV - 0.5 × FTA -
 
 A minute-adjusted composite score using weighted coefficients:
 
-PER = 0.68 + (1 / MP) × [ 26.77 × FG - 35.58 × FG + 26.32 × FT - 25.47 × FTA + 42.74 × ORB + 11.45 × DRB + 29.70 × AST + 47.30 × STL + 38.00 × BLK - 47.90 × TOV - 18.80 × PF + 41.10 × PTS]
+PER = 0.68 + (1 / MP) × [ 26.77 × FG - 35.58 × FGA + 26.32 × FT - 25.47 × FTA + 42.74 × ORB + 11.45 × DRB + 29.70 × AST + 47.30 × STL + 38.00 × BLK - 47.90 × TOV - 18.80 × PF + 41.10 × PTS]
 
 These weights are loosely modeled after NBA PER logic
+
+### 🔹 4. Custom WNBA PER
+
+A minute-adjusted composite score using weighted coefficients:
+
+PER = 0.3289 + (1 / MP) × [ 53.35 × FG - 29.28 × FGA + 15.27 × FT - 25.34 × FTA + 47.72 × ORB + 10.95 × DRB + 31.61 × AST + 50.72 × STL + 50.68 × BLK - 45.88 × TOV - 61.23 × PF + 41.10 × PTS]
+
+See how these were computed on my site [here](https://smonroe6.github.io/WNBA-Player-Rating/r/NBAVsWNBA.html)
 
 ## 🚀 How to Run
 

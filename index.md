@@ -27,7 +27,11 @@ A weighted version of box stats accounting for value-added and cost.
 
 ### NBA PER
 
-A PER-style composite using WNBA-specific stat weights and minutes played.
+A PER-style composite using NBA stat weights and minutes played.
+
+### Custom PER
+
+A PER-style composite using WNBA-specific stat weights and minutes played. How these are calculated can be found [here](https://smonroe6.github.io/WNBA-Player-Rating/r/NBAVsWNBA.html)
 
 You can view full explanations in the [README](https://github.com/smonroe6/WNBA-Player-Rating#-metrics-explained).
 
@@ -38,6 +42,7 @@ You can view full explanations in the [README](https://github.com/smonroe6/WNBA-
 - 📁 [View the GitHub Repository](https://github.com/smonroe6/WNBA-Player-Rating)
 - 🗃️ [Raw and Cleaned Data Files](https://github.com/smonroe6/WNBA-Player-Rating/tree/main/data)
 - 📓 [Open the Metric Calculation Notebook](https://github.com/smonroe6/WNBA-Player-Rating/blob/main/notebooks/Metrics.ipynb)
+- 🏋️ [Customer PER Weighting Explanation](https://smonroe6.github.io/WNBA-Player-Rating/r/NBAVsWNBA.html)
 - 📈 [See Final Metric Outputs](https://github.com/smonroe6/WNBA-Player-Rating/tree/main/data/Metrics)
 - 📈 [View Metric Pages](visuals/MetricsNav.html)
 

@@ -1,13 +1,13 @@
-Player,Pos,WinScore,Efficiency,NBAPER
-Kennedy Burke,G-F,4.947,9.421,14.432
-Natasha Cloud,G,5.639,14.5,13.866
-Marquesha Davis,G,0.278,0.778,6.094
-Leonie Fiebich,F,4.958,9.083,9.511
-Rebekah Gardner,G,2.211,5.211,10.846
-Isabelle Harrison,F,2.324,4.706,12.705
-Sabrina Ionescu,G,7.306,18.667,19.157
-Marine Johannes,G,2.711,6.474,9.95
-Jonquel Jones,C,10.722,17.111,20.551
-Nyara Sabally,C,4.346,8.154,12.864
-Jaylyn Sherrod,G,0.333,1.8,5.557
-Breanna Stewart,F,9.132,20.158,20.285
+Player,Pos,WinScore,Efficiency,NBAPER,WNBAPER
+Kennedy Burke,G-F,4.947,9.421,14.432,17.037
+Natasha Cloud,G,5.639,14.5,13.866,14.175
+Marquesha Davis,G,0.278,0.778,6.094,3.328
+Leonie Fiebich,F,4.958,9.083,9.511,9.161
+Rebekah Gardner,G,2.211,5.211,10.846,9.565
+Isabelle Harrison,F,2.324,4.706,12.705,13.433
+Sabrina Ionescu,G,7.306,18.667,19.157,24.555
+Marine Johannes,G,2.711,6.474,9.95,12.693
+Jonquel Jones,C,10.722,17.111,20.551,23.919
+Nyara Sabally,C,4.346,8.154,12.864,12.853
+Jaylyn Sherrod,G,0.333,1.8,5.557,0.695
+Breanna Stewart,F,9.132,20.158,20.285,24.688

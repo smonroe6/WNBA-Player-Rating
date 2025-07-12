@@ -32,7 +32,7 @@ jobs:
 
       - name: ⏳ Wait for 2023Data.csv to exist
         run: |
-          timeout=30
+          timeout=500
           while [ ! -f data/Cleaned/2023Data.csv ] && [ $timeout -gt 0 ]; do
             echo "Waiting for data/Cleaned/2023Data.csv..."
             sleep 1
@@ -45,6 +45,9 @@ jobs:
 
       - name: 🧮 Run Metrics.ipynb
         run: jupyter nbconvert --to notebook --execute notebooks/Metrics.ipynb --output Metrics.ipynb
+
+      - name: 🧪 Print preview of CSV
+        run: head -n 5 data/Metrics/2023Metrics.csv
 
       - name: 🕒 Update last_updated.txt
         run: |

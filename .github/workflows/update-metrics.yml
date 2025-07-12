@@ -28,7 +28,14 @@ jobs:
         run: pip install pandas jupyter lxml
 
       - name: 📊 Run scrape.ipynb
-        run: jupyter nbconvert --to notebook --execute notebooks/scrape.ipynb --output scrape.ipynb
+        run: |
+          jupyter nbconvert --to notebook --execute notebooks/scrape.ipynb --output scrape.ipynb
+          sync
+
+      - name: ⏳ Wait after scrape to ensure file flush
+        run: |
+          echo "Sleeping for 5 seconds to allow file system sync..."
+          sleep 5
 
       - name: ⏳ Wait for all Cleaned CSVs to exist
         shell: bash

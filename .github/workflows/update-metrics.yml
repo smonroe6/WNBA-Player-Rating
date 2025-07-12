@@ -31,17 +31,20 @@ jobs:
         run: jupyter nbconvert --to notebook --execute notebooks/scrape.ipynb --output scrape.ipynb
 
       - name: ⏳ Wait for all Cleaned CSVs to exist
+        shell: bash
         run: |
-          timeout=30
+          timeout=15
           while { [ ! -f data/Cleaned/2023Data.csv ] || [ ! -f data/Cleaned/2024Data.csv ] || [ ! -f data/Cleaned/2025Data.csv ]; } && [ $timeout -gt 0 ]; do
             echo "Waiting for all CSVs... $timeout seconds remaining"
             sleep 1
             timeout=$((timeout - 1))
           done
           if [ $timeout -eq 0 ]; then
-            echo "One or more files not found in time!"
+            echo "❌ One or more files not found in time!"
             ls -l data/Cleaned/
             exit 1
+          else
+            echo "✅ All files are present."
           fi
 
       - name: 🧮 Run Metrics.ipynb

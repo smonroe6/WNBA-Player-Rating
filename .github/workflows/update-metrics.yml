@@ -3,10 +3,10 @@ name: Auto-update WNBA Metrics
 permissions:
   contents: write
 on:
-  schedule:
-    # 6:00 AM CST (11:00 UTC) and 3:30 PM CST (20:30 UTC)
-    - cron: "0 11 * * *"
-    - cron: "30 20 * * *"
+  # schedule:
+  #   # 6:00 AM CST (11:00 UTC) and 3:30 PM CST (20:30 UTC)
+  #   - cron: "0 11 * * *"
+  #   - cron: "30 20 * * *"
   workflow_dispatch: # Allows manual run from GitHub UI
 
 jobs:

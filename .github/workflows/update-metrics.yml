@@ -32,7 +32,7 @@ jobs:
 
       - name: ⏳ Wait for 2023Data.csv to exist
         run: |
-          timeout=500
+          timeout=5000
           while [ ! -f data/Cleaned/2023Data.csv ] && [ $timeout -gt 0 ]; do
             echo "Waiting for data/Cleaned/2023Data.csv..."
             sleep 1

@@ -1,15 +1,15 @@
 /* PHO team stylesheet */
 body {
-  background-color: #f5f5f5;
+  background-color: #f5f5f5 !important;
 }
 
 h1 {
-  color: #1d1160;
+  color: #1d1160 !important;
 }
 
 table.dataTable thead {
-  background-color: #e56020;
-  color: white;
+  background-color: #e56020 !important;
+  color: white !important;
 }
 
 .multi-team {

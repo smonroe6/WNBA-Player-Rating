@@ -1,0 +1,17 @@
+/* PHO team stylesheet */
+body {
+  background-color: #f5f5f5;
+}
+
+h1 {
+  color: #1d1160;
+}
+
+table.dataTable thead {
+  background-color: #e56020;
+  color: white;
+}
+
+.multi-team {
+  background-color: #ffeeba;
+}

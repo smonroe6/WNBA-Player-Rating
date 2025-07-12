@@ -1,0 +1,17 @@
+/* ATL team stylesheet */
+body {
+  background-color: #f5f5f5;
+}
+
+h1 {
+  color: #002b5c;
+}
+
+table.dataTable thead {
+  background-color: #ce1141;
+  color: white;
+}
+
+.multi-team {
+  background-color: #ffeeba;
+}

@@ -1,0 +1,17 @@
+/* GS team stylesheet */
+body {
+  background-color: #f5f5f5;
+}
+
+h1 {
+  color: #4b0082;
+}
+
+table.dataTable thead {
+  background-color: #ffcc00;
+  color: white;
+}
+
+.multi-team {
+  background-color: #ffeeba;
+}

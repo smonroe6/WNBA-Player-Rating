@@ -1,0 +1,17 @@
+/* CON team stylesheet */
+body {
+  background-color: #f5f5f5;
+}
+
+h1 {
+  color: #002d62;
+}
+
+table.dataTable thead {
+  background-color: #fa4616;
+  color: white;
+}
+
+.multi-team {
+  background-color: #ffeeba;
+}

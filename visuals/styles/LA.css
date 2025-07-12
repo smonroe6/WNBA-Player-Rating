@@ -1,0 +1,17 @@
+/* LA team stylesheet */
+body {
+  background-color: #f5f5f5;
+}
+
+h1 {
+  color: #552583;
+}
+
+table.dataTable thead {
+  background-color: #fdb927;
+  color: white;
+}
+
+.multi-team {
+  background-color: #ffeeba;
+}

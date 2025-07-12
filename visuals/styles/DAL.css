@@ -1,0 +1,17 @@
+/* DAL team stylesheet */
+body {
+  background-color: #f5f5f5;
+}
+
+h1 {
+  color: #007dc5;
+}
+
+table.dataTable thead {
+  background-color: #b8c4c2;
+  color: white;
+}
+
+.multi-team {
+  background-color: #ffeeba;
+}

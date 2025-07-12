@@ -1,0 +1,17 @@
+/* LV team stylesheet */
+body {
+  background-color: #f5f5f5;
+}
+
+h1 {
+  color: #000000;
+}
+
+table.dataTable thead {
+  background-color: #c8102e;
+  color: white;
+}
+
+.multi-team {
+  background-color: #ffeeba;
+}

@@ -1,0 +1,17 @@
+/* IND team stylesheet */
+body {
+  background-color: #f5f5f5;
+}
+
+h1 {
+  color: #002d62;
+}
+
+table.dataTable thead {
+  background-color: #fdbb30;
+  color: white;
+}
+
+.multi-team {
+  background-color: #ffeeba;
+}

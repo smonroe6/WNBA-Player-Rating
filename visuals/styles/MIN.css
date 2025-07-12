@@ -1,0 +1,17 @@
+/* MIN team stylesheet */
+body {
+  background-color: #f5f5f5;
+}
+
+h1 {
+  color: #236192;
+}
+
+table.dataTable thead {
+  background-color: #78be20;
+  color: white;
+}
+
+.multi-team {
+  background-color: #ffeeba;
+}

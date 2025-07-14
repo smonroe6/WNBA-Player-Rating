@@ -51,7 +51,6 @@ You can view full explanations in the [README](https://github.com/smonroe6/WNBA-
 ## 🚀 Coming Soon
 
 - Interactive dashboards (Streamlit or Tableau)
-- Player profile pages
 - Multi-season comparisons
 
 ---

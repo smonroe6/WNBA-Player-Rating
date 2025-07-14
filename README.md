@@ -98,7 +98,7 @@ Add per-possession and pace-adjusted stats
 
 Visualize trends with Tableau or Streamlit
 
-Create player dashboards and career summaries
+Create player career summaries
 
 Automate scraping for real-time updates during the season
 

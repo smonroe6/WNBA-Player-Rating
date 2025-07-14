@@ -25,7 +25,7 @@ jobs:
           python-version: "3.x"
 
       - name: 📦 Install dependencies
-        run: pip install pandas jupyter lxml
+        run: pip install pandas jupyter lxml csv
 
       - name: 📊 Run scrape.ipynb
         run: |

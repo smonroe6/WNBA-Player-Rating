@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>2023 WNBA Player Metrics</title>
+    <title>Player Metrics</title>
 
     <!-- Bootstrap 5 -->
     <link
@@ -17,7 +17,6 @@
       rel="stylesheet"
       href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
     />
-
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
@@ -26,12 +25,13 @@
       body {
         background-color: #f5f5f5;
         font-family: Arial, sans-serif;
+        padding: 20px;
       }
 
       h1 {
         color: #ff5910;
         text-align: center;
-        margin-top: 20px;
+        margin-bottom: 30px;
       }
 
       table.dataTable thead {
@@ -42,19 +42,20 @@
       table.dataTable tbody tr:nth-child(even) {
         background-color: #ffffff;
       }
+
       table.dataTable tbody tr:nth-child(odd) {
         background-color: #f0f0f0;
       }
 
-      .back-button {
-        background-color: #ff5910;
+      a.back-link {
+        background-color: #005bbb;
         color: white;
-        padding: 10px;
-        display: inline-block;
-        border-radius: 6px;
+        padding: 8px 16px;
         text-decoration: none;
-        font-weight: bold;
-        margin: 10px;
+        border-radius: 6px;
+        font-family: sans-serif;
+        margin-bottom: 20px;
+        display: inline-block;
       }
     </style>
   </head>
@@ -76,8 +77,15 @@
       >
     </p>
 
-    <h2 id="playerName"></h2>
-    <div id="metrics"></div>
+    <h1 id="playerName">Player Stats</h1>
+
+    <div style="overflow-x: auto">
+      <table
+        id="playerTable"
+        class="table table-striped table-bordered nowrap"
+        style="width: 100%"
+      ></table>
+    </div>
 
     <script>
       const params = new URLSearchParams(window.location.search);
@@ -90,29 +98,50 @@
         function (csvData) {
           const lines = csvData.trim().split("\n");
           const headers = lines[0].split(",");
-          const rows = lines.slice(1).map((l) => l.split(","));
+          const rows = lines.slice(1).map((line) => line.split(","));
 
-          const filtered = rows.filter((row) => row[0] === playerName); // Assumes "Player" is first column
+          const filtered = rows.filter((row) => row[0] === playerName);
 
           if (filtered.length === 0) {
-            $("#metrics").html("<p>No data available for this player.</p>");
+            $("#playerTable").html("<p>No data available for this player.</p>");
             return;
           }
 
-          const table = $("<table class='table table-bordered'></table>");
-          const thead = $(
-            "<thead><tr><th>Season</th><th>Pos</th><th>WinScore</th><th>Efficiency</th><th>PER</th></tr></thead>"
-          );
-          const tbody = $("<tbody></tbody>");
+          const thead =
+            "<thead><tr>" +
+            headers
+              .slice(1)
+              .map((h) => `<th>${h}</th>`)
+              .join("") +
+            "</tr></thead>";
 
-          filtered.forEach((row) => {
-            tbody.append(
-              `<tr><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td><td>${row[4]}</td><td>${row[5]}</td></tr>`
-            );
-          });
+          const tbody =
+            "<tbody>" +
+            filtered
+              .map((row) => {
+                return (
+                  "<tr>" +
+                  row
+                    .slice(1)
+                    .map((cell) => `<td>${cell}</td>`)
+                    .join("") +
+                  "</tr>"
+                );
+              })
+              .join("") +
+            "</tbody>";
 
-          table.append(thead).append(tbody);
-          $("#metrics").append(table);
+          const seasonIndex = headers.indexOf("Season") - 1; // -1 because we removed 'Player'
+
+          $("#playerTable")
+            .html(thead + tbody)
+            .DataTable({
+              scrollX: true,
+              paging: true,
+              ordering: true,
+              searching: false,
+              order: [[seasonIndex, "desc"]],
+            });
         }
       );
     </script>

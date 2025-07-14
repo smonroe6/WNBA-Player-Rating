@@ -101,12 +101,22 @@
             const tbody =
               "<tbody>" +
               rows
-                .map(
-                  (row) =>
+                .map((row) => {
+                  return (
                     "<tr>" +
-                    row.map((cell) => `<td>${cell}</td>`).join("") +
+                    row
+                      .map((cell, i) => {
+                        if (headers[i].trim() === "Player") {
+                          const playerName = encodeURIComponent(cell.trim());
+                          return `<td><a href="/WNBA-Player-Rating/visuals/player.html?name=${playerName}">${cell}</a></td>`;
+                        } else {
+                          return `<td>${cell}</td>`;
+                        }
+                      })
+                      .join("") +
                     "</tr>"
-                )
+                  );
+                })
                 .join("") +
               "</tbody>";
 

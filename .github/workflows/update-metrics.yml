@@ -27,39 +27,10 @@ jobs:
       - name: 📦 Install dependencies
         run: pip install pandas jupyter lxml
 
-      - name: 📊 Run scrape.ipynb
+      - name: 📊 Run CurrentSeason.ipynb
         run: |
-          jupyter nbconvert --to notebook --execute notebooks/scrape.ipynb --output scrape.ipynb
+          jupyter nbconvert --to notebook --execute notebooks/CurrentSeason.ipynb --output CurrentSeason.ipynb
           sync
-
-      - name: ⏳ Wait after scrape to ensure file flush
-        run: |
-          echo "Sleeping for 5 seconds to allow file system sync..."
-          sleep 5
-
-      - name: ⏳ Wait for all Cleaned CSVs to exist
-        shell: bash
-        run: |
-          timeout=15
-          while { [ ! -f data/Cleaned/2023Data.csv ] || [ ! -f data/Cleaned/2024Data.csv ] || [ ! -f data/Cleaned/2025Data.csv ]; } && [ $timeout -gt 0 ]; do
-            echo "Waiting for all CSVs... $timeout seconds remaining"
-            sleep 1
-            timeout=$((timeout - 1))
-          done
-          if [ $timeout -eq 0 ]; then
-            echo "❌ One or more files not found in time!"
-            ls -l data/Cleaned/
-            exit 1
-          else
-            echo "✅ All files are present."
-          fi
-
-      - name: 🧮 Run Metrics.ipynb
-        run: jupyter nbconvert --to notebook --execute notebooks/Metrics.ipynb --output Metrics.ipynb
-
-      - name: 🧪 Print preview of CSV
-        run: head -n 5 data/Metrics/2023Metrics.csv
-
       - name: 🕒 Update last_updated.txt
         run: |
           date -u +"%Y-%m-%dT%H:%M:%SZ" > data/Metrics/last_updated.txt

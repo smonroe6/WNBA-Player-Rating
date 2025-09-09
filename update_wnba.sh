@@ -7,7 +7,7 @@
 cd /Users/stephenmonroe/Desktop/Coding/WNBA-Player-Rating/notebooks
 
 # Run notebooks (using papermill or jupyter nbconvert)
-python3 -m nbconvert --to notebook --execute CurrentSeason.ipynb --output executed_CurrentSeason.ipynb
+python3 -m nbconvert --to notebook --execute CurrentSeason.ipynb --output CurrentSeason.ipynb
 
 # Change to your project directory
 cd /Users/stephenmonroe/Desktop/Coding/WNBA-Player-Rating/

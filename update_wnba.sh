@@ -7,7 +7,7 @@
 cd /Users/stephenmonroe/Desktop/Coding/WNBA-Player-Rating/
 
 # Run notebooks (using papermill or jupyter nbconvert)
-jupyter nbconvert --to notebook --execute notebooks/CurrentSeason.ipynb --output notebooks/CurrentSeason.ipynb
+python3 -m nbconvert --to notebook --execute CurrentSeason.ipynb --output executed_CurrentSeason.ipynb
 
 # Update the last_updated.txt file
 date -u +"%Y-%m-%dT%H:%M:%SZ" > data/Metrics/last_updated.txt

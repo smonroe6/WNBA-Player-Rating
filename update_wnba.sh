@@ -4,13 +4,13 @@
 # source /path/to/your/venv/bin/activate
 
 # Change to your project directory
-cd ~/WNBA-Player-Rating
+cd /Users/stephenmonroe/Desktop/Coding/WNBA-Player-Rating/
 
 # Run notebooks (using papermill or jupyter nbconvert)
 jupyter nbconvert --to notebook --execute notebooks/CurrentSeason.ipynb --output notebooks/CurrentSeason.ipynb
 
 # Update the last_updated.txt file
-echo date -u +"%Y-%m-%dT%H:%M:%SZ" > data/Metrics/last_updated.txt
+date -u +"%Y-%m-%dT%H:%M:%SZ" > data/Metrics/last_updated.txt
 
 # Git commands to push changes
 git add .

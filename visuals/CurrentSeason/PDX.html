@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>2026 Dallas Wings</title>
+    <title>2026 Portland Fire</title>
 
     <!-- Bootstrap 5 -->
     <link
@@ -22,7 +22,7 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
-    <link rel="stylesheet" href="/WNBA-Player-Rating/visuals/styles/DAL.css" />
+    <link rel="stylesheet" href="/WNBA-Player-Rating/visuals/styles/PDX.css" />
   </head>
 
   <body>
@@ -42,10 +42,10 @@
       >
     </p>
 
-    <h2>2026 Dallas Wings</h2>
+    <h2>2026 Portland Fire</h2>
     <img
       id="teamLogo"
-      src="/WNBA-Player-Rating/visuals/Logos/DAL.png"
+      src="/WNBA-Player-Rating/visuals/Logos/PDX.png"
       alt="Team Logo"
       style="max-height: 100px; margin-bottom: 20px"
     />
@@ -60,7 +60,7 @@
     <script>
       $(document).ready(function () {
         $.get(
-          "/WNBA-Player-Rating/data/Metrics/CurrentSeasonTeams/DAL.csv",
+          "/WNBA-Player-Rating/data/Metrics/CurrentSeasonTeams/PDX.csv",
           function (csvData) {
             const lines = csvData.trim().split("\n");
             const headers = lines[0].split(",");
@@ -122,7 +122,6 @@
           const diffMinutes = Math.floor(diffMs / 1000 / 60);
           const diffHours = Math.floor(diffMinutes / 60);
 
-          // Format UTC -> Central Time (CDT or CST based on time of year)
           const options = {
             timeZone: "America/Chicago",
             hour: "numeric",
@@ -137,7 +136,6 @@
             options
           ).format(updatedUtc);
 
-          // Badge text
           let badgeText = "";
           if (diffHours < 1) {
             badgeText = `🟢 Updated ${diffMinutes} minute${
@@ -153,7 +151,6 @@
             } ago`;
           }
 
-          // Set badge styling and tooltip
           const badge = $("#last-updated");
           badge.text(badgeText);
           badge.attr(
@@ -161,7 +158,6 @@
             `Last updated at ${formattedLocal} (Central Time)`
           );
 
-          // Apply badge color
           badge.removeClass("bg-success bg-warning");
           badge.addClass(diffHours <= 12 ? "bg-success" : "bg-warning");
         }

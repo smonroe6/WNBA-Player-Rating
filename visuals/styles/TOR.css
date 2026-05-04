@@ -1,0 +1,17 @@
+/* TOR — Toronto Tempo */
+body {
+  background-color: #f5f5f5 !important;
+}
+
+h1 {
+  color: #1a0a2e !important;
+}
+
+table.dataTable thead {
+  background-color: #5f259b !important;
+  color: white !important;
+}
+
+.multi-team {
+  background-color: #ffeeba;
+}

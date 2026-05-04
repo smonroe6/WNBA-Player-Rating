@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>2026 Dallas Wings</title>
+    <title>2026 WNBA Player Metrics</title>
 
     <!-- Bootstrap 5 -->
     <link
@@ -22,14 +22,48 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
-    <link rel="stylesheet" href="/WNBA-Player-Rating/visuals/styles/DAL.css" />
+    <style>
+      body {
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        color: #ff5910;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      table.dataTable thead {
+        background-color: #ff5910;
+        color: white;
+      }
+
+      table.dataTable tbody tr:nth-child(even) {
+        background-color: #ffffff;
+      }
+      table.dataTable tbody tr:nth-child(odd) {
+        background-color: #f0f0f0;
+      }
+
+      .back-button {
+        background-color: #ff5910;
+        color: white;
+        padding: 10px;
+        display: inline-block;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 10px;
+      }
+    </style>
   </head>
 
   <body>
     <!-- Back Button -->
     <p>
       <a
-        href="/WNBA-Player-Rating/visuals/CurrentSeason/CurrentSeasonNav.html"
+        href="/WNBA-Player-Rating/visuals/League/LeagueNav.html"
         style="
           background-color: #005bbb;
           color: white;
@@ -38,15 +72,15 @@
           border-radius: 6px;
           font-family: sans-serif;
         "
-        >← Back to Current Season Navigation</a
+        >← Back to League Navigation</a
       >
     </p>
 
-    <h2>2026 Dallas Wings</h2>
+    <h2>WNBA Player Ratings (2026)</h2>
     <img
-      id="teamLogo"
-      src="/WNBA-Player-Rating/visuals/Logos/DAL.png"
-      alt="Team Logo"
+      id="leagueLogo"
+      src="/WNBA-Player-Rating/visuals/Logos/WNBA.png"
+      alt="League Logo"
       style="max-height: 100px; margin-bottom: 20px"
     />
     <div style="overflow-x: auto">
@@ -60,7 +94,7 @@
     <script>
       $(document).ready(function () {
         $.get(
-          "/WNBA-Player-Rating/data/Metrics/CurrentSeasonTeams/DAL.csv",
+          "/WNBA-Player-Rating/data/Metrics/2026Metrics.csv",
           function (csvData) {
             const lines = csvData.trim().split("\n");
             const headers = lines[0].split(",");

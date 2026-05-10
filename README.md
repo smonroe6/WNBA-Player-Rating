@@ -24,6 +24,7 @@ View metrics by season:
 - [2023 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/visuals/League/2023Metrics.html)
 - [2024 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/visuals/League/2024Metrics.html)
 - [2025 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/visuals/League/2025Metrics.html)
+- [2026 Metrics Table](https://smonroe6.github.io/WNBA-Player-Rating/visuals/League/2026Metrics.html)
 
 ---
 

@@ -42,7 +42,7 @@ You can view full explanations in the [README](https://github.com/smonroe6/WNBA-
 - 📁 [View the GitHub Repository](https://github.com/smonroe6/WNBA-Player-Rating)
 - 🗃️ [Raw and Cleaned Data Files](https://github.com/smonroe6/WNBA-Player-Rating/tree/main/data)
 - 📓 [Open the Metric Calculation Notebook](https://github.com/smonroe6/WNBA-Player-Rating/blob/main/notebooks/Metrics.ipynb)
-- 🏋️ [Customer PER Weighting Explanation](https://smonroe6.github.io/WNBA-Player-Rating/R/NBAVsWNBA.html)
+- 🏋️ [Custom PER Weighting Explanation](https://smonroe6.github.io/WNBA-Player-Rating/R/NBAVsWNBA.html)
 - 📈 [See Final Metric Outputs](https://github.com/smonroe6/WNBA-Player-Rating/tree/main/data/Metrics)
 - 📈 [View Metric Pages](visuals/MetricsNav.html)
 

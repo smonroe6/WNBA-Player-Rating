@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Ensure PATH is available when run outside a terminal (e.g. Stream Deck)
+export PATH="/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:$PATH"
+source ~/.zshrc 2>/dev/null || source ~/.bash_profile 2>/dev/null
+
+# Log output for debugging
+exec > "/Users/stephenmonroe/Desktop/wnba_update.log" 2>&1
+echo "=== WNBA Update started: $(date) ==="
+
 # Activate your virtual environment if needed
 # source /path/to/your/venv/bin/activate
 
